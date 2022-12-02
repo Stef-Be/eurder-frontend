@@ -9,7 +9,7 @@ import {Item} from "../model/Item";
 })
 export class ItemService {
 
-  private _url:string;
+  private readonly _url:string;
 
   constructor(private http:HttpClient) {
     this._url = `${environment.backendUrl}/items`

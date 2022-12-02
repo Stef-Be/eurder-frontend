@@ -7,6 +7,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import { NameFilterPipe } from './pipe/name-filter.pipe';
 import {ItemOverviewComponent} from "./item-overview/item-overview.component";
+import { CreateItemComponent } from './create-item/create-item.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import {ItemOverviewComponent} from "./item-overview/item-overview.component";
     AppComponent,
     ItemOverviewComponent,
     NameFilterPipe,
+    CreateItemComponent,
   ],
     imports: [
         BrowserModule,
