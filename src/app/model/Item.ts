@@ -2,11 +2,11 @@ export interface Item {
   name: string,
   price: number,
   image: string,
-  urgency: Urgency,
+  amountOfStock: number,
 
 }
 
-  export enum Urgency{
-    Green, Orange, Red
+  export enum AmountOfStock{
+    green, orange, red
 }
 
