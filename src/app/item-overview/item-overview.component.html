@@ -5,20 +5,8 @@
   <title>Order</title>
 </head>
 <body>
-<header>
-  <div class="logo-group">
-    <img src="../assets/order-icon.png" alt="order-icon">
-    <span class="logo-title">&Ouml;RDER</span>
-  </div>
-  <nav role="navigation">
-    <a routerLink='/item-overview'>Items</a>
-    <a routerLink='/create-item'>Create Item</a>
-    <a href='#'>Nav #3</a>
-    <a href='#'>Nav #4</a>
-  </nav>
-</header>
 <div id="search-component">
-  <input class ="input" type="search"
+  <input class="input" type="search"
          [(ngModel)]="searchString"
          placeholder="Filter by name..."/>
 </div>
@@ -27,26 +15,24 @@
   <section>
     <h3 class="section-title">Items</h3>
 
-    <ul class="card-list">
-      <li class="card" *ngFor="let item of _items$ | async | nameFilter:searchString">
-        <div class="card-title">{{item.name}}</div>
-        <img class="card-image" src="../assets/item-image.png" alt="item image">
-        <div class="card-footer">
-          <div>Price: &euro; {{item.price}}</div>
-          <div class="stock">
-            <span>{{convertToUrgency(item.amountOfStock)}}</span>
-            <img class="icon" src='../assets/warning-icon-{{getFlagColor(item.amountOfStock)}}.png' alt="warning">
+    <div class="row">
+      <ul class="card-list">
+        <li class="cardComp col-lg-4" *ngFor="let item of _items$ | async | nameFilter:searchString">
+          <div class="row">
+            <div class="card-title">{{item.name}}</div>
+            <img class="card-image" src="../assets/item-image.png" alt="item image">
+            <div class="card-footer">
+              <div>Price: &euro; {{item.price}}</div>
+              <div class="stock">
+                <span>{{convertToUrgency(item.amountOfStock)}}</span>
+                <img class="icon" src='../assets/warning-icon-{{getFlagColor(item.amountOfStock)}}.png' alt="warning">
+              </div>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </section>
 </main>
-<footer>
-  <div class="logo-group">
-    <img src="../assets/order-icon.png" alt="order-icon">
-    <span class="logo-title">&Ouml;RDER</span>
-  </div>
-</footer>
 </body>
 </html>

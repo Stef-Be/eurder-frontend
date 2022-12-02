@@ -186,7 +186,8 @@ form {
 
 .icon {
   position: relative;
-  top: -4px;
+  width:25px;
+  height:19px;
 }
 
 .stock {
@@ -207,3 +208,10 @@ form {
   background-repeat: no-repeat;
   background-position: right;
 }
+
+.cardComp {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
