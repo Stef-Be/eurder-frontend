@@ -42,7 +42,7 @@ export class CreateItemComponent {
   }
 
   valueChange() {
-    // @ts-ignore
-    this._charactersLeft = 255-this.checkoutForm.value.description?.length;
+    this._charactersLeft = 255-this.checkoutForm.value.description!.length;
+    if (this._charactersLeft < 0) {this._charactersLeft = 0};
   }
 }

@@ -150,6 +150,15 @@ height: 150px;
   padding-right:5px;
 }
 
+.count-message-overflow {
+  color:red;
+  background-color: whitesmoke;
+  margin-top: -20px;
+  margin-right: 5px;
+  float: right;
+  padding-right:5px;
+}
+
 
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;

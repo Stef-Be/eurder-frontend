@@ -25,7 +25,7 @@
       <div class="form-group">
         <label class="form-label">Description</label>
         <textarea (input)="valueChange()" rows="4" cols="48" class="form-control textbox-desc" formControlName="description"></textarea>
-        <app-counter [descriptionLength]="_charactersLeft"></app-counter>
+        <app-counter class="count-message" [class.count-message-overflow]="_charactersLeft===0" [charactersLeft]="_charactersLeft"></app-counter>
       </div>
 
       <div
