@@ -15,8 +15,7 @@
       </div>
 
       <div
-        *ngIf="checkoutForm.controls['name']?.invalid && (checkoutForm.controls['name']?.dirty || checkoutForm.controls['name']?.touched)
-           || checkoutForm.controls['name']?.untouched && isSubmitted"
+        *ngIf="(checkoutForm.controls['name']?.invalid && (checkoutForm.controls['name']?.dirty || checkoutForm.controls['name']?.touched))"
         class="alert alert-danger">
         <div *ngIf="checkoutForm.controls['name'].errors?.required">
           Name is required.
@@ -29,12 +28,17 @@
       </div>
 
       <div
-        *ngIf="checkoutForm.controls['description']?.invalid && (checkoutForm.controls['description']?.dirty || checkoutForm.controls['description']?.touched)
-|| checkoutForm.controls['description']?.untouched && isSubmitted"
+        *ngIf="checkoutForm.controls['description']?.invalid && (checkoutForm.controls['description']?.dirty || checkoutForm.controls['description']?.touched)"
         class="alert alert-danger">
         <div *ngIf="checkoutForm.controls['description'].errors?.required">
           Description is required.
         </div>
+        <div *ngIf="checkoutForm.controls['description'].errors?.maxlength">
+          Description cannot contain more than 255 characters.
+        </div>
+       <!-- <div>
+          {{JSON.stringify(checkoutForm.controls['description'].errors)}}
+        </div> gebruiken om na te gaan wat de effectieve naam van de error is! -->
       </div>
 
       <div class="form-group input-group mb-3">
@@ -46,11 +50,13 @@
       </div>
 
       <div
-        *ngIf="checkoutForm.controls['price']?.invalid && (checkoutForm.controls['price']?.dirty || checkoutForm.controls['price']?.touched)
-          || checkoutForm.controls['price']?.untouched && isSubmitted"
+        *ngIf="checkoutForm.controls['price']?.invalid && (checkoutForm.controls['price']?.dirty || checkoutForm.controls['price']?.touched)"
         class="alert alert-danger">
         <div *ngIf="checkoutForm.controls['price'].errors?.required">
           Price is required.
+        </div>
+        <div *ngIf="checkoutForm.controls['price'].errors?.min">
+          Price cannot be negative.
         </div>
       </div>
 
@@ -60,13 +66,16 @@
       </div>
 
       <div
-        *ngIf="checkoutForm.controls['amount']?.invalid && (checkoutForm.controls['amount']?.dirty || checkoutForm.controls['amount']?.touched)
-          || checkoutForm.controls['amount']?.untouched && isSubmitted"
+        *ngIf="checkoutForm.controls['amount']?.invalid && (checkoutForm.controls['amount']?.dirty || checkoutForm.controls['amount']?.touched)"
         class="alert alert-danger">
         <div *ngIf="checkoutForm.controls['amount'].errors?.required">
           Amount is required.
         </div>
+        <div *ngIf="checkoutForm.controls['amount'].errors?.min">
+          Amount cannot be negative.
+        </div>
       </div>
+
 
       <div class="btn-form">
         <button type="submit" class="btn btn-create">Create</button>

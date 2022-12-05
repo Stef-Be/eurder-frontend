@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Location} from '@angular/common';
-import {FormBuilder, Validator, Validators} from "@angular/forms";
+import {FormBuilder, Validators} from "@angular/forms";
 import {ItemService} from "../service/item.service";
 
 
@@ -16,9 +16,9 @@ export class CreateItemComponent {
 
   checkoutForm = this.formBuilder.group({
       name: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      amount: ['', Validators.required]
+      description: ['', [Validators.required, Validators.maxLength(255)]],
+      price: ['', [Validators.required, Validators.min(0)]],
+      amount: ['', [Validators.required, Validators.min(0)]]
     }
   );
 
@@ -35,10 +35,10 @@ export class CreateItemComponent {
 
 
   onSubmit() {
-    this.isSubmitted=true;
-    this.itemService.addItem(this.checkoutForm.value)
-      .subscribe(data => console.log(data));
-    this.checkoutForm.reset();
+    this.checkoutForm.markAllAsTouched();
+    if(this.checkoutForm.status === "VALID") {
+      this.itemService.addItem(this.checkoutForm.value).subscribe(data => console.log(data));
+      this.checkoutForm.reset();
+    }
   }
-
 }
