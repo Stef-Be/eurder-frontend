@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="search-component">
-  <input class="input" type="search"
+  <input class="input-search" type="search"
          [(ngModel)]="searchString"
          placeholder="Filter by name..."/>
 </div>
@@ -15,10 +15,8 @@
   <section>
     <h3 class="section-title">Items</h3>
 
-    <div class="row">
-      <ul class="card-list">
-        <li class="cardComp col-lg-4" *ngFor="let item of _items$ | async | nameFilter:searchString">
-          <div class="row">
+      <ul class="card-list row">
+        <li class="card col-sm-2" *ngFor="let item of _items$ | async | nameFilter:searchString">
             <div class="card-title">{{item.name}}</div>
             <img class="card-image" src="../assets/item-image.png" alt="item image">
             <div class="card-footer">
@@ -28,10 +26,8 @@
                 <img class="icon" src='../assets/warning-icon-{{getFlagColor(item.amountOfStock)}}.png' alt="warning">
               </div>
             </div>
-          </div>
         </li>
       </ul>
-    </div>
   </section>
 </main>
 </body>

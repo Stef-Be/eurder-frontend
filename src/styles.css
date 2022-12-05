@@ -129,6 +129,7 @@ form {
   padding-left: 0.75rem;
 }
 
+
 .btn:not(:disabled):not(.disabled) {
   cursor: pointer;
 }
@@ -163,10 +164,11 @@ form {
 .card {
   list-style-type: none;
   margin: 2rem;
+  height: 100%;
 }
 
 .card-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 
   text-align: center;
@@ -198,20 +200,16 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  height: 100%;
 }
 
-.input{
+.input-search{
   float: right;
   height: 30px;
   margin-right: 50px;
+  margin-top:50px;
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
   background-position: right;
-}
-
-.cardComp {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
 }
 
