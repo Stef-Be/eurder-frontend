@@ -25,4 +25,8 @@ export class ItemService {
     }
     return this.http.get<Item[]>(this._url);
   }
+
+  addItem(item:Item|any){
+    return this.http.post(`${this._url}`, item);
+  }
 }

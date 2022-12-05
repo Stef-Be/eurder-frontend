@@ -8,32 +8,72 @@
 <main>
   <section>
     <h3 class="section-title">Create Item</h3>
-    <form>
+    <form (ngSubmit)="onSubmit()" [formGroup]="checkoutForm">
       <div class="form-group">
-        <label>Name</label>
-        <input type="name" class="form-control">
+        <label class="form-label">Name</label>
+        <input type="name" class="form-control" formControlName="name">
       </div>
-      <div class="form-group">
-        <label>Description</label>
-        <input class="form-control">
-      </div>
-        <div class="form-group">
-          <div class="input-group mb-3">
-          <label>Price</label>
-          <div class="input-group-prepend">
-            <span class="input-group-text">€</span>
-          </div>
-          <input type="text" class="form-control">
+
+      <div
+        *ngIf="checkoutForm.controls['name']?.invalid && (checkoutForm.controls['name']?.dirty || checkoutForm.controls['name']?.touched)
+           || checkoutForm.controls['name']?.untouched && isSubmitted"
+        class="alert alert-danger">
+        <div *ngIf="checkoutForm.controls['name'].errors?.required">
+          Name is required.
         </div>
       </div>
-        <div class="form-group">
-          <label>Amount of Stock</label>
-          <input class="form-control">
+
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <textarea rows="4" cols="48" class="form-control textbox-desc" formControlName="description"></textarea>
+      </div>
+
+      <div
+        *ngIf="checkoutForm.controls['description']?.invalid && (checkoutForm.controls['description']?.dirty || checkoutForm.controls['description']?.touched)
+|| checkoutForm.controls['description']?.untouched && isSubmitted"
+        class="alert alert-danger">
+        <div *ngIf="checkoutForm.controls['description'].errors?.required">
+          Description is required.
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+
+      <div class="form-group input-group mb-3">
+        <label class="form-label price-label" for="price">Price</label>
+        <div class="input-group-prepend">
+          <span class="input-group-text">€</span>
+        </div>
+        <input type="text" class="form-control" id="price" formControlName="price">
+      </div>
+
+      <div
+        *ngIf="checkoutForm.controls['price']?.invalid && (checkoutForm.controls['price']?.dirty || checkoutForm.controls['price']?.touched)
+          || checkoutForm.controls['price']?.untouched && isSubmitted"
+        class="alert alert-danger">
+        <div *ngIf="checkoutForm.controls['price'].errors?.required">
+          Price is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Amount of Stock</label>
+        <input class="form-control" formControlName="amount">
+      </div>
+
+      <div
+        *ngIf="checkoutForm.controls['amount']?.invalid && (checkoutForm.controls['amount']?.dirty || checkoutForm.controls['amount']?.touched)
+          || checkoutForm.controls['amount']?.untouched && isSubmitted"
+        class="alert alert-danger">
+        <div *ngIf="checkoutForm.controls['amount'].errors?.required">
+          Amount is required.
+        </div>
+      </div>
+
+      <div class="btn-form">
+        <button type="submit" class="btn btn-create">Create</button>
+        <button class="btn btn-cancel" type="button" (click)="goBack()">Cancel</button>
+      </div>
     </form>
 
-    <button type="button" (click)="goBack()">go back</button>
 
   </section>
 </main>
