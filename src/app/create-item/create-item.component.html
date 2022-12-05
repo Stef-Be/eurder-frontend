@@ -24,8 +24,8 @@
 
       <div class="form-group">
         <label class="form-label">Description</label>
-        <textarea rows="4" cols="48" class="form-control textbox-desc" formControlName="description"></textarea>
-        <app-counter></app-counter>
+        <textarea (input)="valueChange()" rows="4" cols="48" class="form-control textbox-desc" formControlName="description"></textarea>
+        <app-counter [descriptionLength]="_charactersLeft"></app-counter>
       </div>
 
       <div

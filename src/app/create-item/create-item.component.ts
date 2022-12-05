@@ -20,7 +20,7 @@ export class CreateItemComponent {
     }
   );
 
-  _descriptionLength: number = 255;
+  _charactersLeft: number = 255;
 
 
   constructor(private location: Location,
@@ -33,12 +33,6 @@ export class CreateItemComponent {
     this.location.back();
   }
 
-  getDescriptionLength(){
-    return this._descriptionLength
-  }
-
-
-
   onSubmit() {
     this.checkoutForm.markAllAsTouched();
     if(this.checkoutForm.status === "VALID") {
@@ -47,7 +41,8 @@ export class CreateItemComponent {
     }
   }
 
-  valueChange(descriptionLength: number) {
-    this._descriptionLength = 255-descriptionLength;
+  valueChange() {
+    // @ts-ignore
+    this._charactersLeft = 255-this.checkoutForm.value.description?.length;
   }
 }
