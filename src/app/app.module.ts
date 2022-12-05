@@ -9,6 +9,7 @@ import {NameFilterPipe} from './pipe/name-filter.pipe';
 import {ItemOverviewComponent} from "./item-overview/item-overview.component";
 import {CreateItemComponent} from './create-item/create-item.component';
 import {RouterModule} from '@angular/router';
+import { CounterComponent } from './counter/counter.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {RouterModule} from '@angular/router';
     ItemOverviewComponent,
     NameFilterPipe,
     CreateItemComponent,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,

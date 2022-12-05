@@ -12,8 +12,6 @@ import {ItemService} from "../service/item.service";
 
 export class CreateItemComponent {
 
-  isSubmitted:boolean = false;
-
   checkoutForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: ['', [Validators.required, Validators.maxLength(255)]],
@@ -21,6 +19,9 @@ export class CreateItemComponent {
       amount: ['', [Validators.required, Validators.min(0)]]
     }
   );
+
+  _descriptionLength: number = 255;
+
 
   constructor(private location: Location,
               private formBuilder: FormBuilder,
@@ -32,6 +33,10 @@ export class CreateItemComponent {
     this.location.back();
   }
 
+  getDescriptionLength(){
+    return this._descriptionLength
+  }
+
 
 
   onSubmit() {
@@ -40,5 +45,9 @@ export class CreateItemComponent {
       this.itemService.addItem(this.checkoutForm.value).subscribe(data => console.log(data));
       this.checkoutForm.reset();
     }
+  }
+
+  valueChange(descriptionLength: number) {
+    this._descriptionLength = 255-descriptionLength;
   }
 }
