@@ -7,7 +7,7 @@
 <body>
 <main>
   <section *ngIf="_item$ | async as item">
-    <h3 class="section-title">Item {{item.id}}</h3>
+    <h3 class="section-title">Item <p>{{item.id}}</p></h3>
     <form>
       <div class="form-group">
         <label class="form-label">Name</label>
