@@ -17,8 +17,8 @@
 
       <ul class="card-list row">
         <li class="card col-sm-2" *ngFor="let item of _items$ | async | nameFilter:searchString">
-            <div class="card-title">{{item.name}}</div>
-            <img class="card-image" src="../assets/item-image.png" alt="item image">
+            <div routerLink="/view-item/{{item.id}}" class="card-title">{{item.name}}</div>
+            <img routerLink="/view-item/{{item.id}}" class="card-image" src="../assets/item-image.png" alt="item image">
             <div class="card-footer">
               <div>Price: &euro; {{item.price}}</div>
               <div class="stock">
