@@ -29,4 +29,8 @@ export class ItemService {
   addItem(item:Item|any){
     return this.http.post(`${this._url}`, item);
   }
+
+  getItem(id: string | null) {
+    return this.http.get<Item>(`${this._url}/${id}`)
+  }
 }

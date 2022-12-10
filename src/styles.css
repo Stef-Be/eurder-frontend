@@ -216,9 +216,13 @@ height: 150px;
   margin-bottom: .5rem;
 }
 
-.card-title:hover, .card-image:hover{
+.card-title:hover{
   background-color: lightgray;
   color: white;
+}
+
+.card-image:hover{
+  opacity: 0.5;
 }
 
 .card-image {
