@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Location} from "@angular/common";
 import {mergeMap, Observable} from "rxjs";
 import {ItemService} from "../service/item.service";
@@ -11,6 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ViewItemComponent implements OnInit{
 
+  isReadOnly: Boolean = true;
   _item$!: Observable<any>
 
   constructor(private itemService: ItemService, private route: ActivatedRoute, private location:Location) {

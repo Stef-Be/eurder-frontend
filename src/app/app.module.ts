@@ -11,6 +11,7 @@ import {CreateItemComponent} from './create-item/create-item.component';
 import {RouterModule} from '@angular/router';
 import { CounterComponent } from './counter/counter.component';
 import { ViewItemComponent } from './view-item/view-item.component';
+import { EditItemComponent } from './edit-item/edit-item.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ViewItemComponent } from './view-item/view-item.component';
     CreateItemComponent,
     CounterComponent,
     ViewItemComponent,
+    EditItemComponent,
   ],
   imports: [
     BrowserModule,
